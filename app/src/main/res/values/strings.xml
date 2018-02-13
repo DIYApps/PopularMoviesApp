@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Popular Movies</string>
+    <string name="movies_thumbnail_description">Movies thumbnail will display here.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_title_popular">Popular</string>
+    <string name="menu_title_top_rated">Top Rated</string>
+    <string name="no_internet_connection">Your are offline. Please check your Internet connection.</string>
+    <string name="server_error">Unable to load movie data from server.</string>
+    <string name="no_data_found">No data found.</string>
+    <string name="success">Success</string>
+    <string name="content_description_of_poster_imageview">Poster of the movie</string>
+    <string name="movie_details">Movie Details</string>
+</resources>
