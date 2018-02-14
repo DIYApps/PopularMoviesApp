@@ -16,8 +16,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:padding="16dp"
+        android:gravity="center"
+        android:text="No movies to display."
         android:textColor="@color/error_color"
         android:textSize="20sp"
+        android:drawableTop="@drawable/ic_error"
         android:visibility="invisible"/>
 
     <ProgressBar

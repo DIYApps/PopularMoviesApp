@@ -136,21 +136,19 @@ public class MoviesListFragment extends Fragment implements MoviesResultAdapter.
         if (movieDataArrayList == null || movieDataArrayList.isEmpty()) {
             mRecyclerView.setVisibility(View.INVISIBLE);
             mErrorMessageTextView.setVisibility(View.VISIBLE);
-            mErrorMessageTextView.setText(errorMessage);
-        } else {
-            Snackbar.make(mRecyclerView, errorMessage, Snackbar.LENGTH_INDEFINITE)
-                    .setAction(R.string.retry, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if(mMoviesCategory.equals(getString(R.string.menu_title_top_rated))) {
-                                loadMovies(TOP_RATED);
-                            }
-                            else{
-                                loadMovies(POPULAR);
-                            }
-                        }
-                    }).show();
         }
+        Snackbar.make(mRecyclerView, errorMessage, Snackbar.LENGTH_INDEFINITE)
+                .setAction(R.string.retry, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(mMoviesCategory.equals(getString(R.string.menu_title_top_rated))) {
+                            loadMovies(TOP_RATED);
+                        }
+                        else{
+                            loadMovies(POPULAR);
+                        }
+                    }
+                }).show();
     }
 
     private void loadMovies(String category) {
