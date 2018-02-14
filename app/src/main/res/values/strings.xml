@@ -12,4 +12,5 @@
     <string name="success">Success</string>
     <string name="content_description_of_poster_imageview">Poster of the movie</string>
     <string name="movie_details">Movie Details</string>
+    <string name="retry">Retry</string>
 </resources>

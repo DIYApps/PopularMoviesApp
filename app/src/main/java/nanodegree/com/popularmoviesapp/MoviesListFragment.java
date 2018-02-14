@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,6 +18,8 @@ import android.widget.TextView;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.logging.Logger;
+
 import nanodegree.com.popularmoviesapp.data.ErrorCodes;
 import nanodegree.com.popularmoviesapp.data.MovieData;
 import nanodegree.com.popularmoviesapp.data.MoviesResult;
@@ -75,7 +78,7 @@ public class MoviesListFragment extends Fragment implements MoviesResultAdapter.
             L.d("Movie category restored" + mMoviesCategory);
         } else {
             loadMovies(POPULAR);
-            mMoviesCategory =  getString(R.string.menu_title_popular);
+            mMoviesCategory = getString(R.string.menu_title_popular);
             L.d("Movie category default" + mMoviesCategory);
             mFragmentInteractionListener.setActionBarTitle(mMoviesCategory);
         }
@@ -87,8 +90,8 @@ public class MoviesListFragment extends Fragment implements MoviesResultAdapter.
         if (movieDataArrayList != null && !movieDataArrayList.isEmpty()) {
             outState.putParcelableArrayList(MOVIES_KEY, movieDataArrayList);
         }
-        if(mMoviesCategory !=  null && !mMoviesCategory.isEmpty()){
-            outState.putString(MOVIES_CATEGORY_KEY , mMoviesCategory);
+        if (mMoviesCategory != null && !mMoviesCategory.isEmpty()) {
+            outState.putString(MOVIES_CATEGORY_KEY, mMoviesCategory);
         }
         super.onSaveInstanceState(outState);
     }
@@ -108,6 +111,8 @@ public class MoviesListFragment extends Fragment implements MoviesResultAdapter.
 
         @Override
         public void onError(ErrorCodes errorCodes) {
+
+            L.e("ErrorCode" + errorCodes);
             mLoadingIndicator.setVisibility(View.INVISIBLE);
             showErrorMessage(getString(errorCodes.getCode()));
         }
@@ -122,14 +127,30 @@ public class MoviesListFragment extends Fragment implements MoviesResultAdapter.
     /**
      * This method will make the error message visible and hide the weather
      * View.
-     * <p>
+     * <p/>
      * Since it is okay to redundantly set the visibility of a View, we don't
      * need to check whether each view is currently visible or invisible.
      */
     private void showErrorMessage(String errorMessage) {
-        mRecyclerView.setVisibility(View.INVISIBLE);
-        mErrorMessageTextView.setVisibility(View.VISIBLE);
-        mErrorMessageTextView.setText(errorMessage);
+
+        if (movieDataArrayList == null || movieDataArrayList.isEmpty()) {
+            mRecyclerView.setVisibility(View.INVISIBLE);
+            mErrorMessageTextView.setVisibility(View.VISIBLE);
+            mErrorMessageTextView.setText(errorMessage);
+        } else {
+            Snackbar.make(mRecyclerView, errorMessage, Snackbar.LENGTH_INDEFINITE)
+                    .setAction(R.string.retry, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if(mMoviesCategory.equals(getString(R.string.menu_title_top_rated))) {
+                                loadMovies(TOP_RATED);
+                            }
+                            else{
+                                loadMovies(POPULAR);
+                            }
+                        }
+                    }).show();
+        }
     }
 
     private void loadMovies(String category) {
@@ -174,18 +195,19 @@ public class MoviesListFragment extends Fragment implements MoviesResultAdapter.
 
     @Override
     public void onItemClicked(int position) {
-        Intent intent =  new Intent(getContext() , MovieDetailsActivity.class);
+
+        Intent intent = new Intent(getContext(), MovieDetailsActivity.class);
         intent.putExtra(INTENT_MOVIE_DATA_KEY, movieDataArrayList.get(position));
         startActivity(intent);
     }
 
     @Override
     public void onAttach(Context context) {
+
         super.onAttach(context);
-        if(context instanceof FragmentInteractionListener){
+        if (context instanceof FragmentInteractionListener) {
             mFragmentInteractionListener = (FragmentInteractionListener) context;
-        }
-        else{
+        } else {
             throw new IllegalArgumentException("Activity must implement FragmentInteractionListener");
         }
     }
@@ -197,7 +219,7 @@ public class MoviesListFragment extends Fragment implements MoviesResultAdapter.
         mFragmentInteractionListener = null;
     }
 
-    public interface FragmentInteractionListener{
+    public interface FragmentInteractionListener {
         void setActionBarTitle(String title);
     }
 

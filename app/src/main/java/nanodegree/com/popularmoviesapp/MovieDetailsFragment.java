@@ -18,7 +18,6 @@ import nanodegree.com.popularmoviesapp.data.MovieData;
 public class MovieDetailsFragment extends Fragment {
 
     private static final String MOVIE_DATA_KEY = "movie_data";
-    private static final String INTENT_MOVIE_DATA_KEY = "movie_data";
     private MovieData movieData;
 
     public MovieDetailsFragment() {
@@ -77,8 +76,8 @@ public class MovieDetailsFragment extends Fragment {
             movieData = savedInstanceState.getParcelable(MOVIE_DATA_KEY);
         } else {
             Intent intent = getActivity().getIntent();
-            if (intent.hasExtra(INTENT_MOVIE_DATA_KEY)) {
-                movieData = intent.getParcelableExtra(INTENT_MOVIE_DATA_KEY);
+            if (intent.hasExtra(MOVIE_DATA_KEY)) {
+                movieData = intent.getParcelableExtra(MOVIE_DATA_KEY);
             }
         }
         setDetails(movieData);
