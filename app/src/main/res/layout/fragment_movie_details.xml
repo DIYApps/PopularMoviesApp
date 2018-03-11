@@ -1,4 +1,4 @@
-<ScrollView
+<android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -25,15 +25,28 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <FrameLayout
+                android:layout_width="126dp"
+                android:layout_height="180dp">
             <ImageView
                 android:id="@+id/iv_movie_poster"
-                android:layout_width="126dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:contentDescription="@string/content_description_of_poster_imageview"
-                android:minHeight="180dp"
                 android:padding="8dp"
                 android:scaleType="fitXY"
                 />
+
+                <ToggleButton
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:id="@+id/tb_add_to_fav"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@null"
+                    android:button="@drawable/tb_heart_shape_background"
+                    android:layout_gravity="right|top"/>
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -73,8 +86,23 @@
             android:layout_height="1dp"
             android:layout_margin="8dp"
             android:background="@android:color/darker_gray"/>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rv_movies_trailer"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textSize="18sp"
+            android:text="@string/reviews"/>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rv_movies_reviews"/>
     </LinearLayout>
-</ScrollView>
+
+</android.support.v4.widget.NestedScrollView>
 
 
 

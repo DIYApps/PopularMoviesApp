@@ -10,5 +10,9 @@
           android:title="@string/menu_title_top_rated"
           android:orderInCategory="1"
           app:showAsAction="never"/>
+    <item android:id="@+id/action_favourite"
+          android:title="@string/menu_title_favourite"
+          android:orderInCategory="1"
+          app:showAsAction="never"/>
 
 </menu>

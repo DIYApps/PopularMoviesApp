@@ -33,7 +33,24 @@ public class NetworkUtils {
                 .appendPath(END_POINT)
                 .appendQueryParameter("api_key", API_KEY)
                 .build();
-        Log.d(TAG, "URI " + buildUri.toString());
+        L.d(TAG+"URI " + buildUri.toString());
+        return new URL(buildUri.toString());
+    }
+    /**
+     *creates the URL from URI with all parameters.
+     */
+    public static URL buildUrlWithId(final String API_KEY, final String END_POINT , final  String ID)
+            throws MalformedURLException {
+        Uri.Builder builder = new Uri.Builder();
+        Uri buildUri = builder.scheme(SCHEME)
+                .authority(AUTHORITY)
+                .appendPath("3")
+                .appendPath(PATH)
+                .appendPath(ID)
+                .appendPath(END_POINT)
+                .appendQueryParameter("api_key", API_KEY)
+                .build();
+        L.d(TAG+ "URI " + buildUri.toString());
         return new URL(buildUri.toString());
     }
 

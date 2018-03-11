@@ -1,9 +1,14 @@
 package nanodegree.com.popularmoviesapp;
 
 import android.os.Bundle;
+import android.support.v4.app.LoaderManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+
+import java.util.ArrayList;
+
+import nanodegree.com.popularmoviesapp.data.MoviesTrailer;
 
 public class MovieDetailsActivity extends AppCompatActivity {
 

@@ -13,4 +13,9 @@
     <string name="content_description_of_poster_imageview">Poster of the movie</string>
     <string name="movie_details">Movie Details</string>
     <string name="retry">Retry</string>
+
+
+    <string name="number_of_mails">you have %d number of mails</string>
+    <string name="menu_title_favourite">Favourite</string>
+    <string name="reviews">Reviews</string>
 </resources>
