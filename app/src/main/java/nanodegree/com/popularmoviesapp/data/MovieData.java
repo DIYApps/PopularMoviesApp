@@ -39,6 +39,9 @@ public class MovieData implements Parcelable {
     private boolean adult;
     private String overview;
 
+    public MovieData(){
+
+    }
     protected MovieData(Parcel in) {
 
         voteCount = in.readInt();

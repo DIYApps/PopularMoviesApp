@@ -18,4 +18,10 @@
     <string name="number_of_mails">you have %d number of mails</string>
     <string name="menu_title_favourite">Favourite</string>
     <string name="reviews">Reviews</string>
+    <string name="movie_added_to_favourite">Movie added to favourite</string>
+    <string name="movie_delete_from_favourite">Movie deleted from favourite database.</string>
+    <string name="no_movie_in_db">No movies in favourite list.</string>
+    <string name="ok">OK</string>
+    <string name="load_movie_from_favourite_list">Do you want to load movie from favourite list?</string>
+    <string name="no">NO</string>
 </resources>

@@ -21,6 +21,10 @@
         <activity android:name=".MovieDetailsActivity"
             android:label="@string/movie_details">
         </activity>
+        <provider
+            android:authorities="nanodegree.com.popularmoviesapp"
+            android:name=".data.MovieContentProvider"
+            android:exported="false"/>
     </application>
 
 </manifest>
