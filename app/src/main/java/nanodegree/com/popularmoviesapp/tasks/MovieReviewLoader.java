@@ -11,8 +11,6 @@ import java.util.ArrayList;
 
 import nanodegree.com.popularmoviesapp.data.MoviesReview;
 import nanodegree.com.popularmoviesapp.data.MoviesReviewData;
-import nanodegree.com.popularmoviesapp.data.MoviesTrailer;
-import nanodegree.com.popularmoviesapp.data.MoviesTrailerData;
 import nanodegree.com.popularmoviesapp.utils.JsonUtils;
 import nanodegree.com.popularmoviesapp.utils.L;
 import nanodegree.com.popularmoviesapp.utils.NetworkUtils;

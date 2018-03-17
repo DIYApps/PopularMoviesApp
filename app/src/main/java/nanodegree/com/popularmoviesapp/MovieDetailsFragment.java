@@ -21,10 +21,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
 import com.squareup.picasso.Picasso;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+
 import nanodegree.com.popularmoviesapp.data.MovieData;
 import nanodegree.com.popularmoviesapp.data.MoviesContract;
 import nanodegree.com.popularmoviesapp.data.MoviesReview;
@@ -290,7 +293,7 @@ public class MovieDetailsFragment extends Fragment
         contentValues.put(MoviesContract.MovieEntry.IS_ADULT, (movieData.isAdult() ? 1 : 0));
         contentValues.put(MoviesContract.MovieEntry.VIDEO, (movieData.isVideo() ? 1 : 0));
         contentValues.put(MoviesContract.MovieEntry.MOVIES_ID, movieData.getId());
-        contentValues.put(MoviesContract.MovieEntry.ORIGINAL_LAUNGUAGE, movieData.getOriginalLanguage());
+        contentValues.put(MoviesContract.MovieEntry.ORIGINAL_LANGUAGE, movieData.getOriginalLanguage());
         contentValues.put(MoviesContract.MovieEntry.ORIGINAL_TITLE, movieData.getOriginalTitle());
         contentValues.put(MoviesContract.MovieEntry.OVERVIEW, movieData.getOverview());
         contentValues.put(MoviesContract.MovieEntry.POPULARITY, movieData.getPopularity() + "");

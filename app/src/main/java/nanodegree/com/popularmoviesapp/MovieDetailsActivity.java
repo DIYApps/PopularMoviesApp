@@ -1,26 +1,22 @@
 package nanodegree.com.popularmoviesapp;
 
 import android.os.Bundle;
-import android.support.v4.app.LoaderManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import java.util.ArrayList;
-
-import nanodegree.com.popularmoviesapp.data.MoviesTrailer;
-
 public class MovieDetailsActivity extends AppCompatActivity {
 
-    private ActionBar mActionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
-        mActionBar = getSupportActionBar();
-        mActionBar.setDisplayHomeAsUpEnabled(true);
-        mActionBar.setDisplayShowHomeEnabled(true);
+        ActionBar mActionBar = getSupportActionBar();
+        if(mActionBar != null) {
+            mActionBar.setDisplayHomeAsUpEnabled(true);
+            mActionBar.setDisplayShowHomeEnabled(true);
+        }
     }
 
     @Override

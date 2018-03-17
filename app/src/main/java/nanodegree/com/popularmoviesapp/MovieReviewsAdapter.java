@@ -10,7 +10,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import nanodegree.com.popularmoviesapp.data.MoviesReview;
-import nanodegree.com.popularmoviesapp.data.MoviesTrailer;
 
 public class MovieReviewsAdapter extends RecyclerView.Adapter<MovieReviewsAdapter.MovieReviewHolder> {
 

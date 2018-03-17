@@ -6,7 +6,6 @@ import com.google.gson.JsonSyntaxException;
 
 import nanodegree.com.popularmoviesapp.data.MoviesResult;
 import nanodegree.com.popularmoviesapp.data.MoviesReviewData;
-import nanodegree.com.popularmoviesapp.data.MoviesTrailer;
 import nanodegree.com.popularmoviesapp.data.MoviesTrailerData;
 
 public class JsonUtils {

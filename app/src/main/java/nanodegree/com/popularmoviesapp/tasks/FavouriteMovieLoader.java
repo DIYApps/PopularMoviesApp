@@ -13,7 +13,7 @@ import nanodegree.com.popularmoviesapp.utils.L;
 
 public class FavouriteMovieLoader extends AsyncTaskLoader<ArrayList<MovieData>> {
 
-    private ArrayList<MovieData> mMovieDatas;
+    private ArrayList<MovieData> movieDataArrayList;
     public FavouriteMovieLoader(Context context) {
         super(context);
     }
@@ -22,9 +22,9 @@ public class FavouriteMovieLoader extends AsyncTaskLoader<ArrayList<MovieData>> 
     @Override
     protected void onStartLoading() {
 
-        if(mMovieDatas != null){
+        if(movieDataArrayList != null){
             L.d(TAG+"onStartLoading  returning cache data." );
-            deliverResult(mMovieDatas);
+            deliverResult(movieDataArrayList);
         }else{
             L.d(TAG+"onStartLoading loading new data");
             forceLoad();
@@ -36,7 +36,7 @@ public class FavouriteMovieLoader extends AsyncTaskLoader<ArrayList<MovieData>> 
     public ArrayList<MovieData> loadInBackground() {
 
         Cursor cursor =  null;
-        ArrayList<MovieData> movieDatas = new ArrayList<>();
+        ArrayList<MovieData> movieList = new ArrayList<>();
         try {
             ContentResolver contentResolver = getContext().getContentResolver();
              cursor = contentResolver.query(MoviesContract.MovieEntry.CONTENT_URI,
@@ -44,7 +44,7 @@ public class FavouriteMovieLoader extends AsyncTaskLoader<ArrayList<MovieData>> 
                     null,
                     null,
                     null);
-            if (cursor.getCount() == 0) {
+            if (cursor == null || cursor.getCount() == 0) {
                 return null;
             }
             while (cursor.moveToNext()) {
@@ -52,7 +52,7 @@ public class FavouriteMovieLoader extends AsyncTaskLoader<ArrayList<MovieData>> 
                 movieData.setAdult((cursor.getInt(cursor.getColumnIndex(MoviesContract.MovieEntry.IS_ADULT)) == 1));
                 movieData.setVideo((cursor.getInt(cursor.getColumnIndex(MoviesContract.MovieEntry.VIDEO)) == 1));
                 movieData.setBackdropPath(cursor.getString(cursor.getColumnIndex(MoviesContract.MovieEntry.BACKDROP_PATH)));
-                movieData.setOriginalLanguage(cursor.getString(cursor.getColumnIndex(MoviesContract.MovieEntry.ORIGINAL_LAUNGUAGE)));
+                movieData.setOriginalLanguage(cursor.getString(cursor.getColumnIndex(MoviesContract.MovieEntry.ORIGINAL_LANGUAGE)));
                 movieData.setOriginalTitle(cursor.getString(cursor.getColumnIndex(MoviesContract.MovieEntry.ORIGINAL_TITLE)));
                 movieData.setTitle(cursor.getString(cursor.getColumnIndex(MoviesContract.MovieEntry.TITLE)));
                 movieData.setOverview(cursor.getString(cursor.getColumnIndex(MoviesContract.MovieEntry.OVERVIEW)));
@@ -62,7 +62,7 @@ public class FavouriteMovieLoader extends AsyncTaskLoader<ArrayList<MovieData>> 
                 movieData.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(MoviesContract.MovieEntry.MOVIES_ID))));
                 movieData.setPopularity(Double.parseDouble(cursor.getString(cursor.getColumnIndex(MoviesContract.MovieEntry.MOVIES_ID))));
                 movieData.setVoteAverage(Double.parseDouble(cursor.getString(cursor.getColumnIndex(MoviesContract.MovieEntry.VOTE_AVERAGE))));
-                movieDatas.add(movieData);
+                movieList.add(movieData);
             }
         }
         finally {
@@ -70,12 +70,12 @@ public class FavouriteMovieLoader extends AsyncTaskLoader<ArrayList<MovieData>> 
                 cursor.close();
             }
         }
-        return movieDatas;
+        return movieList;
     }
 
     @Override
     public void deliverResult(ArrayList<MovieData> data) {
-        mMovieDatas =  data;
+        movieDataArrayList =  data;
         super.deliverResult(data);
     }
 }

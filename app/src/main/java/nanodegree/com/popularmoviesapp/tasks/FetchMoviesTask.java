@@ -28,12 +28,11 @@ public class FetchMoviesTask extends AsyncTask<URL, String, ErrorCodes> {
     protected ErrorCodes doInBackground(URL... urls) {
 
         URL moviesUrl = urls[0];
-        String result = null;
         if (moviesUrl == null) {
             status = false;
         }
         try {
-            result = NetworkUtils.getMoviesFromServer(moviesUrl);
+            String result = NetworkUtils.getMoviesFromServer(moviesUrl);
             moviesResult = JsonUtils.parseJson(result);
             if (null == moviesResult) {
                 status = false;

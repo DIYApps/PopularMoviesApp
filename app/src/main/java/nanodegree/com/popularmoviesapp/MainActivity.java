@@ -5,7 +5,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 
-import nanodegree.com.popularmoviesapp.data.MovieDBHelper;
 import nanodegree.com.popularmoviesapp.utils.L;
 
 public class MainActivity extends AppCompatActivity implements MoviesListFragment.FragmentInteractionListener {

@@ -21,7 +21,7 @@ public class MovieDBHelper extends SQLiteOpenHelper{
                 + MoviesContract.MovieEntry.GENRE_ID + " TEXT, "
                 + MoviesContract.MovieEntry.IS_ADULT + " INTEGER, "
                 + MoviesContract.MovieEntry.MOVIES_ID + " TEXT UNIQUE NOT NULL, "
-                + MoviesContract.MovieEntry.ORIGINAL_LAUNGUAGE +" TEXT, "
+                + MoviesContract.MovieEntry.ORIGINAL_LANGUAGE +" TEXT, "
                 + MoviesContract.MovieEntry.ORIGINAL_TITLE +" TEXT, "
                 + MoviesContract.MovieEntry.OVERVIEW +" TEXT, "
                 + MoviesContract.MovieEntry.POPULARITY +" TEXT, "

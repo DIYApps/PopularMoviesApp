@@ -24,7 +24,7 @@ public class MoviesContract {
         public static final String TITLE = "title";
         public static final String POPULARITY = "popularity";
         public static final String POSTER_PATH= "posterPath";
-        public static final String ORIGINAL_LAUNGUAGE = "originalLanguage";
+        public static final String ORIGINAL_LANGUAGE = "originalLanguage";
         public static final String ORIGINAL_TITLE = "originalTitle";
         public static final String GENRE_ID= "genreIds";
         public static final String RELEASE_DATE= "releaseDate";

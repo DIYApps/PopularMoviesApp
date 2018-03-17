@@ -5,9 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.support.v4.content.AsyncTaskLoader;
 
-import java.util.ArrayList;
-
-import nanodegree.com.popularmoviesapp.data.MovieData;
 import nanodegree.com.popularmoviesapp.data.MoviesContract;
 
 public class QueryMovieLoader extends AsyncTaskLoader<Boolean> {
@@ -28,7 +25,6 @@ public class QueryMovieLoader extends AsyncTaskLoader<Boolean> {
     public Boolean loadInBackground() {
 
         Cursor cursor =  null;
-        ArrayList<MovieData> movieDatas = new ArrayList<>();
         try {
             ContentResolver contentResolver = getContext().getContentResolver();
              cursor = contentResolver.query(MoviesContract.MovieEntry.CONTENT_URI,
@@ -36,7 +32,7 @@ public class QueryMovieLoader extends AsyncTaskLoader<Boolean> {
                      MoviesContract.MovieEntry.MOVIES_ID +"=?",
                     new String[]{id},
                     null);
-            if (cursor.getCount() == 0) {
+            if (cursor == null|| cursor.getCount() == 0) {
                 return false;
             }
         }

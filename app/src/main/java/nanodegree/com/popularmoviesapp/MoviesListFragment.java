@@ -374,7 +374,7 @@ public class MoviesListFragment extends Fragment implements MoviesResultAdapter.
                     L.d("onLoaderReset::()=============");
                 }
             };
-    Handler handler = new Handler();
+    final Handler handler = new Handler();
     private final ContentObserver favouriteMovieObserver =  new ContentObserver(handler) {
         @Override
         public boolean deliverSelfNotifications() {
