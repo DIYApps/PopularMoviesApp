@@ -5,31 +5,29 @@ import android.os.Parcelable;
 
 public class MoviesReview implements Parcelable {
 
+    public static final Creator< MoviesReview > CREATOR = new Creator< MoviesReview >() {
+        @Override
+        public MoviesReview createFromParcel( Parcel in ) {
+
+            return new MoviesReview( in );
+        }
+
+        @Override
+        public MoviesReview[] newArray( int size ) {
+
+            return new MoviesReview[size];
+        }
+    };
     private String id;
     private String author;
     private String content;
 
-    protected MoviesReview(Parcel in) {
+    protected MoviesReview( Parcel in ) {
 
         id = in.readString();
         author = in.readString();
         content = in.readString();
     }
-
-    public static final Creator<MoviesReview> CREATOR = new Creator<MoviesReview>() {
-        @Override
-        public MoviesReview createFromParcel(Parcel in) {
-
-            return new MoviesReview(in);
-        }
-
-        @Override
-        public MoviesReview[] newArray(int size) {
-
-            return new MoviesReview[size];
-        }
-    };
-
     @Override
     public int describeContents() {
 
@@ -37,11 +35,11 @@ public class MoviesReview implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel( Parcel parcel, int i ) {
 
-        parcel.writeString(id);
-        parcel.writeString(author);
-        parcel.writeString(content);
+        parcel.writeString( id );
+        parcel.writeString( author );
+        parcel.writeString( content );
     }
 
     public String getId() {

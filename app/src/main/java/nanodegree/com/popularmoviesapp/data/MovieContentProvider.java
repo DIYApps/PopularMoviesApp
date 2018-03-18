@@ -21,7 +21,6 @@ public class MovieContentProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-
         Context context = getContext();
         mMovieDbHelper = new MovieDBHelper(context);
         return true;
@@ -82,7 +81,8 @@ public class MovieContentProvider extends ContentProvider {
                 SQLiteDatabase db = mMovieDbHelper.getWritableDatabase();
                 long id = db.insert(MoviesContract.MovieEntry.TABLE_NAME, null, contentValues);
                 if (id > 0) {
-                    insertUri = ContentUris.withAppendedId(MoviesContract.MovieEntry.CONTENT_URI, id);
+                    insertUri = ContentUris.withAppendedId(MoviesContract.MovieEntry.CONTENT_URI,
+                            id);
                     L.d("insert:: insertUri " + insertUri);
                     getContext().getContentResolver().notifyChange(uri, null);
                 }

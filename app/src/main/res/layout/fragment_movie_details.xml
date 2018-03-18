@@ -25,28 +25,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <FrameLayout
-                android:layout_width="126dp"
-                android:layout_height="180dp">
             <ImageView
                 android:id="@+id/iv_movie_poster"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="140dp"
+                android:layout_height="200dp"
                 android:contentDescription="@string/content_description_of_poster_imageview"
                 android:padding="8dp"
                 android:scaleType="fitXY"
                 />
-
-                <ToggleButton
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:id="@+id/tb_add_to_fav"
-                    android:textOn=""
-                    android:textOff=""
-                    android:background="@null"
-                    android:button="@drawable/tb_heart_shape_background"
-                    android:layout_gravity="right|top"/>
-            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -69,6 +55,19 @@
                     android:padding="16dp"
                     android:textSize="18sp"/>
 
+                <ToggleButton
+                    android:id="@+id/tb_add_to_fav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_gravity="left"
+                    android:background="@null"
+                    android:button="@drawable/tb_heart_shape_background"
+                    android:padding="8dp"
+                    android:textOff="@string/add_as_favourite_label"
+                    android:textOn="@string/added_as_favourite_label"
+                    android:textSize="16dp"
+                    android:textStyle="bold"/>
+
             </LinearLayout>
 
         </LinearLayout>
@@ -86,20 +85,31 @@
             android:layout_height="1dp"
             android:layout_margin="8dp"
             android:background="@android:color/darker_gray"/>
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/rv_movies_trailer"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:textSize="18sp"
-            android:text="@string/reviews"/>
+            android:textStyle="bold"
+            android:text="@string/trailers"
+            android:textSize="22sp"/>
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_movies_trailer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/rv_movies_reviews"/>
+            android:padding="16dp"
+            android:textStyle="bold"
+            android:text="@string/reviews"
+            android:textSize="22sp"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_movies_reviews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

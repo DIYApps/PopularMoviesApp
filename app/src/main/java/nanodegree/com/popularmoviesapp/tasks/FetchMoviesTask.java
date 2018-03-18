@@ -13,59 +13,58 @@ import nanodegree.com.popularmoviesapp.utils.JsonUtils;
 import nanodegree.com.popularmoviesapp.utils.L;
 import nanodegree.com.popularmoviesapp.utils.NetworkUtils;
 
-public class FetchMoviesTask extends AsyncTask<URL, String, ErrorCodes> {
+public class FetchMoviesTask extends AsyncTask< URL, String, ErrorCodes > {
 
     private final TaskCompletionListener taskCompletionListener;
     private boolean status;
     private MoviesResult moviesResult;
 
-    public FetchMoviesTask(TaskCompletionListener taskCompletionListener) {
+    public FetchMoviesTask( TaskCompletionListener taskCompletionListener ) {
 
         this.taskCompletionListener = taskCompletionListener;
     }
 
     @Override
-    protected ErrorCodes doInBackground(URL... urls) {
+    protected ErrorCodes doInBackground( URL... urls ) {
 
         URL moviesUrl = urls[0];
-        if (moviesUrl == null) {
+        if ( moviesUrl == null ) {
             status = false;
         }
         try {
-            String result = NetworkUtils.getMoviesFromServer(moviesUrl);
-            moviesResult = JsonUtils.parseJson(result);
-            if (null == moviesResult) {
+            String result = NetworkUtils.getMoviesFromServer( moviesUrl );
+            moviesResult = JsonUtils.parseJson( result );
+            if ( null == moviesResult ) {
                 status = false;
                 return ErrorCodes.NO_DATA_FOUND;
             }
             status = true;
             return ErrorCodes.SUCCESS;
-        } catch (IOException e) {
-            L.e(e.getMessage());
+        } catch ( IOException e ) {
+            L.e( e.getMessage() );
             e.printStackTrace();
             status = false;
             return ErrorCodes.SERVER_ERROR;
-        }
-        catch (JsonSyntaxException e){
+        } catch ( JsonSyntaxException e ) {
             status = false;
             return ErrorCodes.INVALID_DATA;
         }
     }
 
     @Override
-    protected void onPostExecute(ErrorCodes errorCodes) {
+    protected void onPostExecute( ErrorCodes errorCodes ) {
 
-        super.onPostExecute(errorCodes);
-        if (status) {
-            taskCompletionListener.onTaskCompleted(moviesResult);
+        super.onPostExecute( errorCodes );
+        if ( status ) {
+            taskCompletionListener.onTaskCompleted( moviesResult );
         } else {
-            taskCompletionListener.onError(errorCodes);
+            taskCompletionListener.onError( errorCodes );
         }
     }
 
     public interface TaskCompletionListener {
-        void onTaskCompleted(MoviesResult result);
+        void onTaskCompleted( MoviesResult result );
 
-        void onError(ErrorCodes errorCodes);
+        void onError( ErrorCodes errorCodes );
     }
 }

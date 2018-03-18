@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class MoviesReviewData {
 
     private long id;
-    private ArrayList<MoviesReview> results;
+    private ArrayList< MoviesReview > results;
 
     public long getId() {
 
         return id;
     }
 
-    public ArrayList<MoviesReview> getResults() {
+    public ArrayList< MoviesReview > getResults() {
 
         return results;
     }

@@ -8,24 +8,25 @@ import android.view.MenuItem;
 public class MovieDetailsActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState ) {
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_details);
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_movie_details );
         ActionBar mActionBar = getSupportActionBar();
-        if(mActionBar != null) {
-            mActionBar.setDisplayHomeAsUpEnabled(true);
-            mActionBar.setDisplayShowHomeEnabled(true);
+        if ( mActionBar != null ) {
+            mActionBar.setDisplayHomeAsUpEnabled( true );
+            mActionBar.setDisplayShowHomeEnabled( true );
         }
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id =  item.getItemId();
-        if(id == android.R.id.home){
+    public boolean onOptionsItemSelected( MenuItem item ) {
+
+        int id = item.getItemId();
+        if ( id == android.R.id.home ) {
             finish();
             return true;
         }
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected( item );
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
@@ -27,6 +28,8 @@
             android:minHeight="48dp"
             android:padding="16dp"
             android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text= "Author name"
             android:id="@+id/tv_author_name"/>
         <TextView
             android:layout_width="match_parent"

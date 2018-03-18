@@ -14,14 +14,14 @@ public class MoviesResult {
     @SerializedName("total_pages")
     private int totalPages;
 
-    private ArrayList<MovieData> results;
+    private ArrayList< MovieData > results;
 
     public int getPage() {
 
         return page;
     }
 
-    public void setPage(int page) {
+    public void setPage( int page ) {
 
         this.page = page;
     }
@@ -31,7 +31,7 @@ public class MoviesResult {
         return totalResults;
     }
 
-    public void setTotalResults(long totalResults) {
+    public void setTotalResults( long totalResults ) {
 
         this.totalResults = totalResults;
     }
@@ -41,17 +41,17 @@ public class MoviesResult {
         return totalPages;
     }
 
-    public void setTotalPages(int totalPages) {
+    public void setTotalPages( int totalPages ) {
 
         this.totalPages = totalPages;
     }
 
-    public ArrayList<MovieData> getResults() {
+    public ArrayList< MovieData > getResults() {
 
         return results;
     }
 
-    public void setResults(ArrayList<MovieData> results) {
+    public void setResults( ArrayList< MovieData > results ) {
 
         this.results = results;
     }

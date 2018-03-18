@@ -4,6 +4,6 @@
     <item android:state_checked="true"
           android:drawable="@drawable/ic_favourite_checked"
          />
-    <item android:drawable="@drawable/ic_favourite_not_ckecked"
+    <item android:drawable="@drawable/ic_favourite_not_checked"
         android:state_checked="false"/>
 </selector>

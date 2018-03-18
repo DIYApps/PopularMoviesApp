@@ -7,21 +7,31 @@ import com.google.gson.annotations.SerializedName;
 
 public class MoviesTrailer implements Parcelable {
 
-    private String id;
+    public static final Creator< MoviesTrailer > CREATOR = new Creator< MoviesTrailer >() {
+        @Override
+        public MoviesTrailer createFromParcel( Parcel in ) {
 
+            return new MoviesTrailer( in );
+        }
+
+        @Override
+        public MoviesTrailer[] newArray( int size ) {
+
+            return new MoviesTrailer[size];
+        }
+    };
+    private String id;
     @SerializedName("iso_639_1")
     private String iso639;
-
     @SerializedName("iso_3166_1")
     private String iso3166;
-
     private String key;
     private String name;
     private String site;
     private int size;
     private String type;
 
-    protected MoviesTrailer(Parcel in) {
+    protected MoviesTrailer( Parcel in ) {
 
         id = in.readString();
         iso639 = in.readString();
@@ -32,21 +42,6 @@ public class MoviesTrailer implements Parcelable {
         size = in.readInt();
         type = in.readString();
     }
-
-    public static final Creator<MoviesTrailer> CREATOR = new Creator<MoviesTrailer>() {
-        @Override
-        public MoviesTrailer createFromParcel(Parcel in) {
-
-            return new MoviesTrailer(in);
-        }
-
-        @Override
-        public MoviesTrailer[] newArray(int size) {
-
-            return new MoviesTrailer[size];
-        }
-    };
-
     public String getType() {
 
         return type;
@@ -94,15 +89,15 @@ public class MoviesTrailer implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel( Parcel parcel, int i ) {
 
-        parcel.writeString(id);
-        parcel.writeString(iso639);
-        parcel.writeString(iso3166);
-        parcel.writeString(key);
-        parcel.writeString(name);
-        parcel.writeString(site);
-        parcel.writeInt(size);
-        parcel.writeString(type);
+        parcel.writeString( id );
+        parcel.writeString( iso639 );
+        parcel.writeString( iso3166 );
+        parcel.writeString( key );
+        parcel.writeString( name );
+        parcel.writeString( site );
+        parcel.writeInt( size );
+        parcel.writeString( type );
     }
 }
