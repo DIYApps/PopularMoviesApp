@@ -18,7 +18,6 @@ import nanodegree.com.popularmoviesapp.data.MoviesReview;
 public class MovieReviewsAdapter extends RecyclerView.Adapter< MovieReviewsAdapter.MovieReviewHolder > {
 
     private ArrayList< MoviesReview > moviesReviews;
-    private Context mContext;
 
     public void setMoviesReviews( ArrayList< MoviesReview > moviesReviews ) {
 
@@ -29,7 +28,7 @@ public class MovieReviewsAdapter extends RecyclerView.Adapter< MovieReviewsAdapt
     @Override
     public MovieReviewHolder onCreateViewHolder( ViewGroup parent, int viewType ) {
 
-        mContext = parent.getContext();
+        Context mContext = parent.getContext();
         int layoutIdForListItem = R.layout.movie_review_item_layout;
         LayoutInflater inflater = LayoutInflater.from( mContext );
         boolean shouldAttachToParentImmediately = false;

@@ -16,7 +16,6 @@ public class MovieTrailersAdapter extends RecyclerView.Adapter
         < MovieTrailersAdapter.MovieTrailerHolder > {
 
     private ArrayList< MoviesTrailer > moviesTrailers;
-    private Context mContext;
     private OnItemClickListener mItemClickListener;
 
     public MovieTrailersAdapter( OnItemClickListener mItemClickListener ) {
@@ -33,7 +32,7 @@ public class MovieTrailersAdapter extends RecyclerView.Adapter
     @Override
     public MovieTrailerHolder onCreateViewHolder( ViewGroup parent, int viewType ) {
 
-        mContext = parent.getContext();
+        Context mContext = parent.getContext();
         int layoutIdForListItem = R.layout.movie_trailer_item_layout;
         LayoutInflater inflater = LayoutInflater.from( mContext );
         boolean shouldAttachToParentImmediately = false;

@@ -18,7 +18,7 @@ import nanodegree.com.popularmoviesapp.utils.NetworkUtils;
 public class MovieTrailerLoader extends AsyncTaskLoader< ArrayList< MoviesTrailer > > {
 
     private static final String TAG = "MovieTrailerLoader::";
-    final URL movieTrailerURL;
+    private final URL movieTrailerURL;
     private ArrayList< MoviesTrailer > moviesTrailers;
     public MovieTrailerLoader( Context context, URL movietrailerURL ) {
 
@@ -35,7 +35,6 @@ public class MovieTrailerLoader extends AsyncTaskLoader< ArrayList< MoviesTraile
             if ( null == moviesTrailerData ) {
                 return null;
             }
-            L.d( TAG + "loadInBackground() done \n " + result );
             return moviesTrailerData.getResults();
         } catch ( IOException e ) {
             L.e( e.getMessage() );

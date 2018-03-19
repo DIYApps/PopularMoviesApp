@@ -58,7 +58,6 @@ public class MoviesListFragment extends Fragment implements MoviesResultAdapter.
     private static final String MOVIES_CATEGORY_KEY = "movies_category_key";
     private static final String INTENT_MOVIE_DATA_KEY = "movie_data";
     private static boolean isMovieDbChanged;
-    private static boolean isDataRefershing;
     final Handler handler = new Handler();
     private MoviesResultAdapter moviesResultAdapter;
     private ArrayList< MovieData > movieDataArrayList;
@@ -337,7 +336,7 @@ public class MoviesListFragment extends Fragment implements MoviesResultAdapter.
             return;
         }
         L.d( "Loading movies from server" );
-        URL moviesUrl = null;
+        URL moviesUrl;
         try {
             moviesUrl = NetworkUtils.buildUrl( API_KEY, category );
         } catch ( MalformedURLException e ) {
@@ -369,7 +368,6 @@ public class MoviesListFragment extends Fragment implements MoviesResultAdapter.
 
         Bundle favouriteMovieLoaderBundle = null;
         if ( isMovieDbChanged ) {
-            isDataRefershing = true;
             getLoaderManager().restartLoader( FAVOURITE_MOVIE_LOADER_ID,
                     favouriteMovieLoaderBundle,
                     favouriteMoviesLoader );
